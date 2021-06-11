@@ -1,0 +1,616 @@
+$color-primary: #806f4d;
+$color-primary-bgdark-contrast: #9d8a62;
+$color-primary-light: #EBE7E0;
+$color-primary-darken: #100e0a;
+$color-white: #fff;
+$color-black: #000;
+$font-regular: 'Lato', sans-serif;
+$font-cursive: 'Leckerli One', cursive;
+$padding-page: 6%;
+$padding-button: 8px 16px; 
+$margin-page: 6%;
+$margin-bottom-section: 80px;
+
+$breakpoint-hd: 1279px;
+$breakpoint-ipad-pro: 1023px;
+$breakpoint-ipad: 767px;
+$breakpoint-iphone: 374px;
+
+
+body {
+  margin: 0px;
+  background-color: $color-primary-light;
+  font-family: $font-regular;
+}
+
+
+header{
+  text-align: center;
+  margin-bottom: 50px;
+  
+
+  .greetings{
+    @media screen and (max-width: $breakpoint-ipad){
+      font-size: 32px;
+    }
+    font-family: $font-cursive;
+    color: $color-primary;
+    font-size: 52px;
+   
+
+  }
+  .title{
+    @media screen and (max-width: $breakpoint-ipad){
+      font-size: 24px;
+    }
+    font-family: $font-regular;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0px;
+  }
+}
+
+.logo{  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-primary-bgdark-contrast;
+  .aroma {
+    font-size: 24px;
+  }
+  .tempeiro {
+    font-size: 18px;
+  }
+}
+
+.info-bar { 
+  @media  screen and (max-width: $breakpoint-ipad) {
+    display: none;
+  }
+
+  height: 40px;
+  color: $color-white;
+  background-color: $color-primary;
+  box-sizing: border-box;
+  padding: 0px $padding-page 0px $padding-page;
+  width: 100%;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .infos{
+    display: flex;
+  }
+
+  .info {
+    display: flex;
+    align-items: center; 
+    &:first-child{
+      margin-right: 60px;
+    }     
+    .material-icons{
+      font-size: 16px;
+      margin-right: 5px;
+    }     
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    a {
+      color: white;
+    }
+    .fa {
+      font-size: 20px;
+    }
+  }       
+}
+
+
+.navbar-overlay {
+
+  @media screen and (max-width: $breakpoint-ipad){
+    position: fixed;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.85;
+
+    &.hidden{
+      display: none;
+    }
+  }
+}
+
+
+.navbar {
+
+  @media screen and (max-width: $breakpoint-ipad){  
+    position: fixed; 
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: flex-start;    
+    height: 100vh;
+    background-color: $color-primary-darken;
+    overflow: hidden;
+    
+    &.active {
+      width: 88vw;    
+      transition: width 0.5s;     
+    }
+    
+    &.inactive{      
+      width: 0px;
+      transition: width 0s;     
+    }
+  }  
+
+  
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 80px;  
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-primary-light;
+  
+  .menu-button {   
+    @media screen and (max-width: $breakpoint-ipad) {
+      display: block;
+      position: fixed;
+      right: 20px;
+      top: 14px;
+      font-size: 32px;  
+      cursor: pointer;
+      &.hidden{
+        display: none;
+      }
+    }
+    display: none;
+  }
+
+  .close-button{
+    @media screen and (max-width: $breakpoint-ipad) {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      font-size: 32px;  
+      cursor: pointer;
+    }
+    display: none;    
+  }
+
+  .logo-link{
+    @media screen and (max-width: $breakpoint-ipad) {
+      margin: 80px 0px 20px 0px;    
+    }
+    margin-left: $margin-page;
+    text-decoration: none;
+  }
+
+  .background-bar {
+    @media screen and (max-width: $breakpoint-ipad) {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 60px;
+      &.hidden{
+        display: none;
+      }
+    }
+
+    position: absolute;
+    width: 100%;
+    background-color:  $color-primary-darken;    
+    height: 100%;
+    z-index: -1;    
+    box-shadow:  0px 2px 1px rgba(16, 14, 10, 0.2);
+  }
+
+  .background-bar.inactive{
+    opacity: 0;
+  }
+
+  .background-bar.active{
+    opacity: 1;
+  }
+
+  .background-bar-transition{
+    transition: opacity 0.5s;
+  }
+
+  .links{    
+    @media screen and (max-width: $breakpoint-ipad){
+      display: flex;
+      flex-direction: column;
+      margin-right: 0px;
+      align-items: center;    
+    }
+
+
+
+    margin-right: $margin-page;
+    
+    a{
+      @media screen and (max-width: $breakpoint-ipad){
+        text-align: center;
+        margin-left: 0px;
+        margin-top: 20px;   
+      }
+      color: inherit;
+      margin-left: 50px;
+      text-decoration: none;
+    }
+
+    .reserva {
+      color: white;
+      background-color: $color-primary;
+      padding: 8px 16px;
+      border-radius: 3px;
+    }
+  }
+}
+
+
+#cover{
+
+  @media screen and (max-width: $breakpoint-ipad){
+    min-height: 100vh;
+    transform: translateY(0px);
+    margin-bottom: $margin-bottom-section;
+  } 
+
+  margin-bottom: calc(#{$margin-bottom-section} - 80px);
+  background-image: url('./assets/cover.jpg');
+  min-height: calc(100vh - 40px);
+  transform: translateY(-80px);
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size: cover;  
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.85;
+    z-index: -1;
+  }
+
+  .greetings{
+    margin-left: $margin-page;
+    margin-top: 60px;
+    color: $color-primary-light;    
+  
+    .bem-vindo {
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        font-size: 36px;
+      }
+
+      @media screen and (max-width: $breakpoint-ipad){
+        font-size: 26px;
+      }
+
+      font-size: 52px;
+      font-family: $font-cursive;
+      color: $color-primary;    
+    }
+    .aroma{
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        font-size: 48px;
+      }
+      @media screen and (max-width: $breakpoint-ipad){
+        font-size: 32px;
+      }     
+
+      font-size: 80px;
+      color: $color-primary;
+      font-weight: 900;
+    }
+
+    .tempeiro{
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        font-size: 42px;
+         margin-left: 10px;
+      }
+
+      @media screen and (max-width: $breakpoint-ipad){
+        font-size: 28px;
+        margin-left: 10px;
+      }
+
+      font-size: 68px;
+      color: $color-primary;
+      font-weight: 900;
+      margin-left: 25px;
+    }
+
+    .slogan{
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        font-size: 1em;        
+      }     
+      font-style: italic;
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+  }
+
+  .cta-container{
+    margin-left: $margin-page;   
+
+    .text{
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        font-size: 1em;        
+      }
+      @media screen and (max-width: $breakpoint-ipad){
+        font-size: 0.9em;       
+      }
+      font-size: 1.1em;     
+      color: $color-primary-light;
+      margin-bottom: 40px;
+    }
+
+    a {
+      text-decoration: none;
+      padding: $padding-button;      
+    }
+
+    .menu{
+      color: $color-primary-bgdark-contrast;
+      border: 1px solid $color-primary-bgdark-contrast;
+      border-radius: 3px;
+      margin-right: 40px;      
+    }
+
+    .reserva{
+      color: $color-white;
+      background-color: $color-primary;
+      border-radius: 3px;
+    }
+  }
+}
+
+#restaurant{
+  .bg-image-placeholder{
+    background-image: url('./assets/restaurant.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+  }
+
+  .text-container{
+    @media screen and (max-width: $breakpoint-ipad){
+      padding: 0 $padding-page 0 $padding-page;
+    }
+
+    padding: 0 16% 0 16%;
+    transform: translateY(-80px);
+
+    .text {
+
+      @media screen and (max-width: $breakpoint-ipad-pro){
+        columns: 1;
+      }     
+
+      padding: 40px;
+      border-radius: 10px;      
+      background-color: $color-white;
+      columns: 2;
+      column-gap: 40px;
+      line-height: 1.6;
+
+      p {
+        &:first-child{
+          margin-block-start: 0px;
+        }
+      }
+    }
+  }
+}
+
+#menu{
+
+  &::before{
+    display: block; 
+    content: " "; 
+    margin-top: -80px; 
+    height: 80px; 
+    visibility: hidden; 
+  }
+
+  .dishes-container{
+    @media screen and (max-width: $breakpoint-ipad-pro){
+      grid-template-columns: 47.5% 47.5%;
+    }
+
+    @media screen and (max-width: $breakpoint-ipad){
+      grid-template-columns: 100%;
+    }
+
+    margin: 0 $padding-page $margin-bottom-section $padding-page;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+
+    .dish{
+      padding: 20px;
+      background-color: $color-white;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        margin: 10px 0px;
+      }
+    }
+  }
+}
+
+#reserva{
+
+  @media screen and (max-width: $breakpoint-ipad-pro) {
+    margin: 0 $margin-page $margin-bottom-section $margin-page;
+  }
+
+  $margin-bottom-row: 8px;
+  margin: 0 20% $margin-bottom-section 20%;
+
+  &::before{
+    display: block; 
+    content: " "; 
+    margin-top: -80px; 
+    height: 80px; 
+    visibility: hidden; 
+  }
+
+  .item, .lg-third-row{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .lg-first-row{
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: $breakpoint-ipad) {
+      flex-direction: column;
+      *{
+        flex-basis: 100%;
+      }    
+    }
+    *{
+      flex-basis: 47.5%;      
+    }
+    margin-bottom: $margin-bottom-row;
+  }
+
+  .lg-second-row{
+    @media screen and (max-width: $breakpoint-ipad) {
+      flex-direction: column;
+      *{
+        flex-basis: 100%;
+      }    
+    }
+    
+    display: flex;
+    justify-content: space-between;
+
+    *{
+      flex-basis: 28.33%;
+    }
+    margin-bottom: $margin-bottom-row;
+  }
+
+  .lg-third-row{
+    margin-bottom: calc(#{$margin-bottom-row} + 20px);
+  }
+
+  .lg-fourth-row{    
+    input{
+      width: 100%;
+      background-color: $color-primary;
+      text-align: center;
+      vertical-align: center;
+      color: $color-white;
+      border: none;
+    }
+  }
+
+  label{
+    margin: 12px 0px 8px 0px;    
+  }
+
+  textarea{
+    width: 100%;
+    resize: none;
+  }
+
+  input, select{
+    min-height: 40px;
+    height: 40px;
+    vertical-align: center;
+
+  }
+  
+  input, select, textarea{   
+    @media screen and (max-width: $breakpoint-ipad) {
+      width: 100%;
+    } 
+    padding: 8px;
+    font-family: $font-regular;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px solid #888;
+  }
+
+  input[type = submit]{
+    cursor: pointer;
+  }
+}
+
+.footer{
+  height: 280px;
+  padding-top: 40px; 
+  margin-top: 120px;
+  background-color: $color-primary-darken;
+  color: $color-primary-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  *{
+    text-align: center;
+  }
+
+ .infos{
+   margin-bottom: 20px;
+ }
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2;
+    font-size: 0.95em;
+
+    .material-icons{
+      font-size: 16px;
+      margin-right: 5px;
+    }     
+  }
+
+  .copyright{
+    font-size: 0.8em;
+  }
+}
+
